@@ -1,0 +1,45 @@
+<h1 class="mt-5">Agregar Producto</h1>
+<hr>
+
+<form [formGroup]="formulario">
+    <div class="row g-3 align-items-center mb-3">
+        <div class="col-auto">
+            <label class="col-form-label">Nombre: </label>
+        </div>
+        <div class="col-auto">
+            <input 
+            formControlName="nombre"
+            class="form-control">
+        </div>
+        <div class="col-auto">
+            <span
+                errorMsg
+                *ngIf="esInvalido('nombre')" 
+                >Este campo es requerido</span>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <button
+                class="btn btn-primary"
+                (click)="cambiarNombre()"
+            >
+                Cambiar nombre
+            </button>
+            &nbsp;
+            <button
+            class="btn btn-primary"
+            (click)="cambiarColor()"
+            >
+                Cambiar Color
+        </button>
+        </div>
+    </div>
+
+</form>
+
+<h3 class="mt-5">Formulario</h3>
+
+<pre>{{formulario.valid}}</pre>
+
+<pre>{{formulario.value|json}}</pre>
